@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_percent.c                                :+:      :+:    :+:   */
+/*   chars_&_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhapke <jhapke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 10:39:24 by jhapke            #+#    #+#             */
-/*   Updated: 2025/01/14 08:25:55 by jhapke           ###   ########.fr       */
+/*   Created: 2025/05/10 17:35:01 by jhapke            #+#    #+#             */
+/*   Updated: 2025/05/11 12:39:37 by jhapke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_perc(char c)
+int	ft_putchar(int c)
 {
-	int		count;
-
-	count = 1;
 	write(1, &c, 1);
+	return (1);
+}
+
+int	ft_putstr(char *str)
+{
+	int	count;
+
+	count = -1;
+	if (!str)
+		return (ft_putstr("(null)"));
+	while (str[++count] != '\0')
+		write(1, &str[count], 1);
 	return (count);
 }
